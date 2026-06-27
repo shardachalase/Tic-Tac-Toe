@@ -1,0 +1,120 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+.game{
+  background:rgba(255,255,255,0.1);
+  padding:25px;
+  border-radius:20px;
+  backdrop-filter:blur(15px);
+  box-shadow:0 0 40px rgba(0,255,255,0.3);
+  text-align:center;
+  width:95%;
+  max-width:380px;
+}
+
+.title{
+  font-size:2rem;
+  margin-bottom:15px;
+  text-shadow:0 0 15px cyan;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{ text-shadow:0 0 10px cyan; }
+  to{ text-shadow:0 0 25px cyan; }
+}
+
+.container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+
+.cell{
+  aspect-ratio:1;
+  background:rgba(255,255,255,0.15);
+  border-radius:15px;
+  font-size:3rem;
+  font-weight:bold;
+  color:cyan;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  transition:transform .2s, background .3s, box-shadow .3s;
+  box-shadow:0 0 15px rgba(0,255,255,0.3);
+}
+
+.cell:hover{
+  transform:scale(1.08);
+  background:rgba(0,255,255,0.25);
+  box-shadow:0 0 25px cyan;
+}
+
+.cell:active{
+  transform:scale(.95);
+}
+
+#status{
+  margin:10px 0;
+  font-size:1.1rem;
+  text-shadow:0 0 10px cyan;
+}
+
+button{
+  padding:12px 30px;
+  font-size:1rem;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  background:linear-gradient(135deg,cyan,#00ffd5);
+  color:black;
+  font-weight:bold;
+  transition:transform .2s, box-shadow .2s;
+}
+
+button:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px cyan;
+}
+
+.win{
+  background:lime !important;
+  color:black !important;
+  box-shadow:0 0 30px lime !important;
+}
+
+@media(max-width:480px){
+  .title{ font-size:1.6rem; }
+  .cell{ font-size:2.5rem; }
+}
+.X{
+  color:#00ffff;
+  text-shadow:0 0 15px #00ffff, 0 0 30px #00ffff;
+  animation:pop .2s ease;
+}
+
+.O{
+  color:#ff2fd6;
+  text-shadow:0 0 15px #ff2fd6, 0 0 30px #ff2fd6;
+  animation:pop .2s ease;
+}
+
+@keyframes pop{
+  from{ transform:scale(0); }
+  to{ transform:scale(1); }
+}
